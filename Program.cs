@@ -90,6 +90,7 @@ public class Program
     //B2. So sánh số bước lặp của BinSearch, BinSearchRand 
     //                  và BinSearch2Points (TriSearch).
     //B3. So sánh thời gian thực thi Timing (đo 1000 lần).
+    //B4. Cài đặt lại BinSearch với đệ quy.
     public static void Main(string[] args){
         Console.Clear();
         int[] arr = {7, 9, 4, 6, 10}; int value = 4;
