@@ -47,10 +47,45 @@
         else
             return -1;
     }
+    static int BinSearch(int[] sarr, int value){
+        //int step = 0;
+        int left = 0, right = sarr.Length-1;
+        while(left<=right){
+            //step++;
+            int mid = (left+right)/2;
+            if(sarr[mid]==value){
+                //Console.WriteLine("BinSearch steps: " + step);
+                return mid;
+            }
+            else if(value<sarr[mid])
+                right = mid-1;
+            else
+                left = mid+1;
+        }
+        return -1;
+    }
+    static int BinSearchRand(int[] sarr, int value){
+        //int step = 0;
+        int left = 0, right = sarr.Length-1;
+        Random rand = new Random();
+        while(left<=right){
+            //step++;
+            int mid = rand.Next(left, right+1); //(left+right)/2;
+            if(sarr[mid]==value){
+                //Console.WriteLine("BinSearchRand steps: " + step);
+                return mid;
+            }
+            else if(value<sarr[mid])
+                right = mid-1;
+            else
+                left = mid+1;
+        }
+        return -1;
+    }
     public static void Main(string[] args){
         Console.Clear();
         int[] arr = {7, 9, 4, 6, 10}; int value = 4;
-        int result = SeqSearch(arr, value);
+        /*int result = SeqSearch(arr, value);
         Console.WriteLine("Sequential Search: " + result);
         result = RecuSearch(arr, 0, value);
         Console.WriteLine("Recursive Search: " + result);
@@ -61,6 +96,13 @@
         Console.WriteLine("Recursive Search 3: " + result);
         value = 5;
         result = SenSearch(arr, value);
-        Console.WriteLine("Sentinel Search: " + result);
+        Console.WriteLine("Sentinel Search: " + result);*/
+        int[] sarr = (int[])arr.Clone();
+        Array.Sort(sarr);
+        value = 4;
+        int result = BinSearch(sarr, value);
+        Console.WriteLine("Binary Search: " + result);
+        result = BinSearchRand(sarr, value);
+        Console.WriteLine("Binary Search Rand: " + result);
     }
 }
