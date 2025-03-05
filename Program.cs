@@ -1,4 +1,8 @@
-﻿public class Program
+﻿public class Element{
+    public int index;
+    public int value;
+}
+public class Program
 {
     static int SeqSearch(int[] arr, int value){
         int i = 0;
@@ -82,6 +86,10 @@
         }
         return -1;
     }
+    //B1. Cài đặt BinSearch với 2 mốc.
+    //B2. So sánh số bước lặp của BinSearch, BinSearchRand 
+    //                  và BinSearch2Points (TriSearch).
+    //B3. So sánh thời gian thực thi Timing (đo 1000 lần).
     public static void Main(string[] args){
         Console.Clear();
         int[] arr = {7, 9, 4, 6, 10}; int value = 4;
