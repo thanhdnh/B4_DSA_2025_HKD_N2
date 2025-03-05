@@ -35,6 +35,18 @@
             return 1 + RecuSearch3(temp, value);
         }
     }
+    static int SenSearch(int[] arr, int value){
+        int x = arr[arr.Length-1];
+        arr[arr.Length-1] = value;//sentinel
+        int index = SeqSearch(arr, value);
+        arr[arr.Length-1] = x;
+        if(index<arr.Length-1)
+            return index;
+        else if(value==x)
+            return arr.Length-1;
+        else
+            return -1;
+    }
     public static void Main(string[] args){
         Console.Clear();
         int[] arr = {7, 9, 4, 6, 10}; int value = 4;
@@ -47,5 +59,8 @@
         List<int> list = new List<int>(arr);
         result = RecuSearch3(list, value);
         Console.WriteLine("Recursive Search 3: " + result);
+        value = 5;
+        result = SenSearch(arr, value);
+        Console.WriteLine("Sentinel Search: " + result);
     }
 }
